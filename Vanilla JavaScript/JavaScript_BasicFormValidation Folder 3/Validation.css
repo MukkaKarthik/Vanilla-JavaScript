@@ -1,0 +1,25 @@
+#body_div
+{
+    border: 2px solid black;
+    padding: 10px;
+    margin: 10px;
+    background-color: green;
+    color: white;
+    width: 500px;
+
+}
+
+.row_div
+{
+    padding: 10px;
+    margin: 10px;
+}
+
+.input_class
+{
+    border: 2px solid black;
+    border-radius: 10px;
+    height: 20px;
+    padding: 15px;
+
+}

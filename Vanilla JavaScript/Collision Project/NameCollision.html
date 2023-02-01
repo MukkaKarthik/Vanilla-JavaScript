@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Global Namespace Pollution </title>
+
+    <script src="Team1.js"></script>
+  <script src="team2.js"></script>
+
+
+</head>
+<body>
+
+<h1>Executing Collision Project </h1>
+
+<script>
+
+  var customer_created = new MyCompany.Team1.customer("Google","Facebook").getFullName();
+  var customer_created1 = new MyCompany.team2.customer("Google","Facebook",25).getFullName();
+
+  document.write("Details from 2 properties (Customer function) = " + customer_created + "<br>");
+  document.write("Details from 3 properties (Customer function) = " + customer_created1 );
+
+
+</script>
+
+
+
+
+</body>
+</html>

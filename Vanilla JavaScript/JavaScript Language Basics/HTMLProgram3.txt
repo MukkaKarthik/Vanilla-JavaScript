@@ -1,0 +1,8 @@
+<!doctype HTML>
+<head>
+<script src="JavaScriptProgram.js">
+</script>
+</head>
+
+<body>
+</body>

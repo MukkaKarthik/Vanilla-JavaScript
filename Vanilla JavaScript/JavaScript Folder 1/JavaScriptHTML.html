@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Learning JavaScript Language</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <script src="Program1.js"></script>
+    <link rel="stylesheet" href="Design.css">
+</head>
+
+
+<body>
+<h1>Checking function and if  loop statement if it executes or not</h1>
+
+ <p>Executing function loop </p>
+
+<p>I bought a new car which provides a certain mileage</p>
+
+<h2 id="JavaScript_ID_1">
+    <script>Hit_Distance("Audi",350);</script>
+</h2>
+
+
+
+
+<!-- Performing addition -->
+
+<p>Performing addition operation by calling function </p>
+
+<h2 id="JavaScript_ID_2">
+<script >addSomething(10,50);</script>
+
+</h2>
+
+
+
+<!-- Performing Subtraction -->
+
+<p>Performing subtraction operation by calling function </p>
+
+<h2 id="JavaScript_ID_3">
+    <script >
+         y=SubtractSomething(200,150);
+    document.write("Result after subtracting 2 numbers are :" + y);
+
+    </script>
+
+</h2>
+
+<h2 class="JavaScript_ID_class"> Printing Name using Calling function having local variables
+    <script>
+        printName();
+    </script>
+</h2>
+
+
+<h2 class="JavaScript_ID_class"> Printing Name using Calling function having global variables
+<script>
+    document.write(name1);
+</script>
+</h2>
+
+<h2 class="JavaScript_ID_class"> Printing Array Name using Calling function having global variables
+    <script>
+        document.write(roads[2]
+        
+        );
+    </script>
+</h2>
+
+
+<h2 class="JavaScript_ID_class"> Printing Object property using Calling function having global variables
+    <script>
+        document.write(organisation.student);
+    </script>
+</h2>
+
+<h2 class="JavaScript_ID_class"> Printing add function in Object variable using Calling function having global variables
+    <script>
+        document.write(organisation.addVariables(30,25));
+    </script>
+</h2>
+
+
+<h2 class="JavaScript_ID_class"> Printing a property value in Object variable after modifying using Calling function having global variables
+    <script>
+         College_PrincipalAge = organisation.age + 2;
+        var  trueWord = "Keep coming " + "Keep learning";
+        document.write(College_PrincipalAge);
+        document.write("<br>");
+        document.write(trueWord);
+    </script>
+</h2>
+
+
+<h2 class="JavaScript_ID_class"> Printing a property value in Object variable after modifying using Calling function having global variables
+    <script>
+        var College_PrincipalName = organisation.principle + " Recently Appointed";
+        document.write(College_PrincipalName);
+
+        // if we don't use var word in script tag for a variable , then this word may not show in AutoIntellisense
+    </script>
+</h2>
+
+<script>
+
+organisation.student="New Admission";
+
+</script>
+
+<h2 class="JavaScript_ID_class"> Printing a property value in Object variable by modifying using Calling function having global variables
+    <script>
+        document.write(organisation.student);
+    </script>
+</h2>
+
+
+<script>
+
+    organisation.student=35;
+
+</script>
+
+<h2 class="JavaScript_ID_class"> Changing a property value .Printing an Object variable by modifying using Calling function having global variables
+    <script>
+        document.write(organisation.student);
+    </script>
+</h2>
+
+
+
+<script>
+
+    organisation.place="Bangalore";
+
+</script>
+
+<h2 class="JavaScript_ID_class"> Adding a property value .Printing an Object variable by modifying using Calling function having global variables
+    <script>
+        document.write(organisation.place);
+    </script>
+</h2>
+
+
+
+
+<script>
+
+    delete organisation.place;
+</script>
+
+<h2 class="JavaScript_ID_class"> Deleting a property value .Printing an Object variable by modifying using Calling function having global variables
+    <script>
+        document.write(organisation.place);
+    </script>
+</h2>
+
+
+<script>
+
+     Language = "We are learning Java Language "
+
+     Language1= Language.toUpperCase();
+     Language2= Language.toLowerCase();
+    Language3 = Language.length;
+
+    Language4 = Language.replace("Java","JavaScript");
+    Language5 = Language.bold();
+
+    document.write(Language + "<br>");
+    document.write(Language1 + "<br>");
+     document.write(Language2 + "<br>");
+    document.write(Language3 + "<br>");
+    document.write(Language.charAt(9) + "<br>");
+    document.write(Language4 + "<br>");
+     document.write(Language5 + "<br>");
+
+     document.write("<br/>");
+     document.write("<br/>");
+     document.write("<br/>");
+     document.write("<br/>");
+     document.write("<br/>");
+     document.write("<br/>");
+     document.write("<br/>");
+
+
+
+     var Number= 100.3578;
+    var newNumber = 45 + Math.floor(Number);
+    document.write(newNumber + "<br/>");
+
+     var Number1= 100;
+     var newNumber1 = Math.sqrt(Number1);
+     document.write(newNumber1  + "<br/>");
+
+     var todayTime = new Date();
+     document.write(todayTime + "<br/>");
+
+     var useString =todayTime.toDateString();
+     document.write(useString + "<br/>");
+
+     document.write("Today's Day :"+todayTime.getDay()+ "<br/>");
+     document.write("Today's Hour :"+todayTime.getHours()+ "<br/>");
+     document.write("Today's Year :"+todayTime.getFullYear()+ "<br/>")
+
+    todayTime.setFullYear(3546);
+     todayTime.setHours(67);
+
+     document.write("Revised time :"+ todayTime+ "<br/>"  );
+</script>
+
+
+
+</body>
+
+
+</html>

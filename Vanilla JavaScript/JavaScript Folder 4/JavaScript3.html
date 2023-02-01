@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  
+    <title>JavaScript </title>
+    <link rel="stylesheet" href="JavaScript%20Tutorial%2075%20Videos.css">
+    <script src="JavaScript%20Tutorial%2075%20Videos.js"></script>
+</head>
+<body>
+
+<h1> Displaying Date </h1>
+<h2>
+    <script>
+
+        var Date_Variable = new Date();
+
+        document.write(Date_Variable);
+
+    </script>
+</h2>
+
+<h1>Printing Customized Date </h1>
+<h2>
+    <script>
+
+        var Custom_Date = new Date("January 26 , 1950 , 12:00:00");
+        document.write(Custom_Date);
+
+    </script>
+</h2>
+
+
+<h1>Printing Customized Date in specific format </h1>
+<h2>
+    <script>
+
+        var Custom_Date1 = new Date(1980,10,26,22,45,36,100);
+        document.write(Custom_Date1);
+
+    </script>
+</h2>
+
+
+<h1>Executing Customized JavaScript for Month </h1>
+<h2>
+    <script>
+
+        var DateObject = new Date();
+        var MonthNumber = DateObject.getMonth();
+
+        document.write("Current Month Number = " + MonthNumber + "<br>");
+
+        var MonthName = MonthNamefrom_MonthNumber(MonthNumber);
+        document.write("Current Month Name :" + MonthName + "<br>");
+
+        function MonthNamefrom_MonthNumber(Month_Number)
+        {
+            var MonthName_Array = ["January","February","March","April","May","June","July","August","September","October","November","December"];
+
+            return MonthName_Array[Month_Number];
+
+        }
+    </script>
+
+
+    <h2>Executing Customized JavaScript function for Day </h2>
+    <h2>
+
+        <script>
+
+            var Day_fromDate = new Date();
+
+            var Day_Number = Day_fromDate.getDay();
+
+            document.write("Current Day Number :" + Day_Number + "<br>");
+
+            var  ResultDay = DayNamefrom_DayNumber(Day_Number);
+
+            document.write("Current Day name : " + ResultDay);
+
+
+            function DayNamefrom_DayNumber(Day_Number)
+            {
+                var DayName_Array = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
+
+                return DayName_Array[Day_Number];
+
+            }
+        </script>
+
+    </h2>
+
+
+    <h1>Printing Date in year/month/date specific format </h1>
+<h2>
+    <script>
+
+        var dateObject = new Date();
+        document.write(dateObject + "<br>");
+
+        var Custom_Date = dateObject.getDate();
+        var Custom_Month = dateObject.getMonth();
+        var Custom_Year = dateObject.getFullYear();
+        var Custom_Day = dateObject.getUTCDay();
+
+        document.write("Day = :" + Custom_Day);
+
+        var Obtained_DateFormat = CollectCustom_YearFormat(Custom_Year ,Custom_Month , Custom_Date ,Custom_Day );
+
+        document.write("Required date format obtained <br>");
+        document.write("Required date format :" + Obtained_DateFormat + "<br>");
+
+
+        function CollectCustom_YearFormat(Year , Month , Date)
+        {
+            if (Year < 10)
+            {
+                Year = "0" + Year;
+            }
+
+            Month = Month + 1;
+            if (Month < 10)
+            {
+                Month = "0" + Month;
+            }
+
+            if (Date < 10)
+            {
+                Date = "0" + Date;
+            }
+
+            if (Custom_Day < 10)
+            {
+                Custom_Day = "0" + Custom_Day;
+            }
+
+            return Date + "/" + Month + "/" + Year + " " + Custom_Day;
+        }
+    </script>
+</h2>
+
+
+
+    <div id="Time_div">  </div>
+
+    <input type="button" value="Start Clock" onclick="StartClock()">
+    <input type="button" value="Stop Clock" onclick="StopClock()">
+
+    <script>
+
+        var startClockID;
+
+        function StartClock()
+        {
+            startClockID = setInterval(CurrentDate_Time , 1000);
+        }
+
+        function CurrentDate_Time()
+        {
+            var date_time_object = new Date();
+            document.getElementById("Time_div").innerHTML = date_time_object;
+
+        }
+
+        function StopClock()
+        {
+            clearInterval(startClockID);
+        }
+
+        CurrentDate_Time();
+    </script>
+
+    <br>
+    <br>
+    <br>
+    <br>
+
+    <input type="text" value="10" id="Text_ID" title="input1stElement">
+
+    <input type="button" value="Start Timer" id="StartTimer_ID" onclick="start_Timer('Text_ID')">
+    <input type="button" value="Stop Timer"id="StopTimer_ID" onclick="stop_Timer()">
+
+
+<script>
+
+    var TimerID;
+
+    function start_Timer(controlID)
+    {
+        var control = document.getElementById("controlID");
+        var seconds = control.value;
+
+        seconds = seconds -1;
+
+        if(seconds == 0)
+        {
+            control.value =  "Done";
+            return;
+        }
+        else
+        {
+            control.value = seconds;
+        }
+
+        TimerID = setTimeout(function (){start_Timer("Text_ID")}, 1000);
+
+    }
+
+    function stop_Timer()
+    {
+        clearTimeout(TimerID);
+    }
+
+</script>
+
+
+
+
+    <!-- <table>
+
+        <tr>
+            <td>First Name is </td>
+            <td>
+                <input type="text" title="input2ndElement" id="firstName_ID" onkeyup="function_DuringFocus()" onmouseout="function_DuringFocus()">
+            </td>
+        </tr>
+
+        <tr>
+            <td>Last Name</td>
+            <td>
+                <input type="text"title="input3rdElement" id="LastName_ID" onmouseover="function_DuringFocus('LastName_ID')" onmouseleave="function_DuringFocus('LastName_ID')">
+            </td>
+        </tr>
+
+
+
+    </table> -->
+
+    <br>
+    <br>
+    <br>
+    <input  type="text" value="FirstName" id="ChangeAttribute_ID"  title="input4thElement">
+    <button id = "button_id1"  >Click to change </button>
+    <button id="Remove_event_ID"  onclick="remove_handlers()">Remove Event Handler</button>
+
+
+    <script>
+        document.getElementById("button_id1").onclick = function1;
+
+            function function1 ()
+
+        {
+            this.style.border = '3px solid black';
+            this.style.height = '200px';
+        };
+
+
+            document.getElementById("ChangeAttribute_ID").onmouseover = function2;
+
+                function function2 () {
+
+                this.style.color = "red";
+                this.style.width = "150px";
+                this.style.height = "200px";
+            }
+
+        document.getElementById("ChangeAttribute_ID").onmouseout = function3;
+
+            function function3() {
+
+            this.style.color = "Yellow";
+            this.style.width = "";
+            this.style.height = "";
+        }
+
+
+        function remove_handlers()
+        {
+            button_id1.removeEventListener("click",function1);
+            ChangeAttribute_ID.removeEventListener("mouseover",function2);
+            ChangeAttribute_ID.removeEventListener("mouseout",function3)
+        }
+
+
+
+    </script>
+
+
+    <br>
+    <br>
+    <br>
+    <br>
+
+
+    <input type="button" value="click_details" id="Click_Button" onclick="click_details_function(event)" onmouseover="click_details_function(event)" onmouseout="click_details_function(event)">
+    <div id="DivisionTag_ID"></div>
+
+    <script>
+        function click_details_function(event)
+        {
+
+            var click_details_variable = "Event Name =" + event.type + "<br>X cordinate =" + event.clientX + "<br>Y cordinate =" + event.clientY +
+                "<br>TargetType =" + event.target.type + "<br> Target TagName" + event.target.tagName;
+
+            document.getElementById("DivisionTag_ID").innerHTML = click_details_variable;
+        }
+
+    </script>
+
+    <br>
+    <br>
+    <br>
+
+
+
+    <div class="StyleClass" onclick="alert('Event handled only by Div Section clicked')">Div Element
+
+    <span class="StyleClass" >Span Element
+
+        <input  class="StyleClass" type="button" value="Click_Button_inSpanSection" >
+
+
+
+    </span>
+
+    </div>
+
+
+    <br>
+    <br>
+    <br>
+    <br>
+
+
+    <div id="div_1" class="div_class"> 1st Division
+
+        <div id="div_2" class="div_class"> 2nd Division
+
+            <div id="div_3" class="div_class"> 3rd Division</div>
+
+        </div>
+
+    </div>
+
+    <script>
+
+        var DivElements = document.getElementsByTagName("div");
+
+        for(var i=0; i<DivElements.length; i++)
+        {
+            DivElements[i].onclick = function ()
+            {
+                this.style.borderColor = "red";
+                alert(this.getAttribute("id") + "Section border highlighted");
+            }
+
+        }
+
+    </script>
+
+
+
+        <div id="differentHeaderTags">
+
+            <h2>first h2 header</h2>
+            <h2>second h2 header</h2>
+            <h2>third h2 header</h2>
+        </div>
+
+        <script>
+
+            var a = document.getElementById("differentHeaderTags").getElementsByTagName("h2");
+
+            for(var i = 0 ; i < a.length ; i++)
+            {
+                a[i].onmouseover = function ()
+                {
+                    this.style.backgroundColor = "green";
+                    this.style.fontSize = "40px";
+                    this.style.color = "white";
+                }
+
+
+                a[i].onmouseout = function ()
+                {
+                    this.style.backgroundColor = "blue";
+                }
+
+            }
+
+        </script>
+
+    
+
+<br>
+    <br>
+
+     <br>
+    <br>
+    <br>
+
+    <img src="image1.jpg"  class="ImageClass" id="Main_Image" title="Image1stElement">
+        <br>
+        <br>
+
+    <div id = "main_div_ID">
+    <img src="image2.jpg" class="ImageClass" title="Image2ndElement">
+    <img src="image3.jpeg" class="ImageClass" title="Image3rdElement">
+    <img src="image4.jpeg" class="ImageClass" title="Image4thElement">
+    <img src="image5.jpeg" class="ImageClass" title="Image5thElement">
+    <img src="image6.jpeg" class="ImageClass" title="Image6thElement">
+    <img src="image7.jpeg" class="ImageClass" title="Image7thElement">
+    </div>
+
+    <script>
+
+        var Attribute = document.getElementById("main_div_ID").getElementsByTagName("img");
+
+        for(var i = 0; i < Attribute.length ; i++)
+        {
+            Attribute[i].onmouseover = function ()
+            {
+                this.style.cursor = "pointer";
+                this.style.border = "3px solid red";
+            }
+
+            Attribute[i].onmouseout = function ()
+            {
+                this.style.cursor = "";
+                this.style.border = "";
+            }
+
+
+        }
+
+    </script>
+
+<br>
+    <br>
+    <br>
+    <br>
+
+
+</body>
+</html>

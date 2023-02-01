@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trying documentation programs</title>
+</head>
+<body>
+    
+    <button onclick="RedColor()">Display Red color as background color</button>
+
+    <!-- <script>
+        alert("welcome to hello world");
+        prompt("add any random prompt message");
+        confirm("add some confirm message");
+    </script> -->
+
+
+    <script>
+
+            var MyArray1 = ["JavaScript","Java","XML tags",23,true];
+
+            var MyArray2 = new Array();
+
+            MyArray2[0] = "Mechanical";
+            MyArray2[1] = "Electrical";
+            MyArray2[2] = "Civil";
+            MyArray2[3] = "Electronics";
+            MyArray2[4] = "Computer Science";
+
+            var MyArray3 = new Array("English","Maths","Social","Science");
+
+            console.log(MyArray1);
+            console.log(MyArray2);
+
+            console.log(MyArray3);
+
+            // Reversing Array
+            console.log(MyArray3.reverse());
+
+
+    </script>
+
+    <h3 id="AlphabetLength" onclick="printLetters()">Print no of alphabets</h3>
+
+    <script>
+
+      function printLetters()
+      {
+
+        var a = "Dictionary";
+
+            document.getElementById("AlphabetLength").innerHTML = a.length;
+
+           // document.getElementById("AlphabetLength").innerHTML = a.length();
+           // when we give above way , it will throw an error stating that this function length is invalid
+
+            document.getElementById("AlphabetLength").style.backgroundColor = "green";
+
+            document.getElementById("AlphabetLength").style.color = "white";
+
+      }
+        
+    </script>
+
+
+
+<script>
+
+    function lastSpellCheck()
+    { 
+    
+    var y="JavaScript Programming Language";
+    
+    document.getElementById("lastSpellCheck_ID").innerHTML=y.endsWith("uage");
+    }
+    
+    </script>
+    
+    </head>
+    
+    <body>
+    
+    <h1>String value "JavaScript Programming Language" ends with "uage" is <p id="lastSpellCheck_ID"></p></h1>
+    <button onclick="lastSpellCheck()">LastSpellCheck_Button</button>
+
+
+    <br>
+    <br>
+    <br>
+    <br>
+
+
+
+    <script>
+        var y = "Technology ";
+        document.write(y.repeat(5) + "<br>");
+    </script>
+        
+
+
+
+        <h1>Click the button to display max value in web browser</h1> 
+       
+        <h1 id="Max_Value">  </h1>
+
+            <script>
+            
+            function MaxValue()
+            {
+            var y=document.getElementById("Max_Value");
+            y.innerHTML=Number.MAX_VALUE;
+            }
+            </script>
+            
+            
+            
+            <button onclick="MaxValue()">MAXValue_Button</button>
+            
+
+    
+
+
+            <h1>Click the button to display min value in web browser</h1> <h1 id="Min_Value">
+
+                <script>
+                
+                function MinValue()
+                {
+                var y=document.getElementById("Min_Value");
+                y.innerHTML=Number.MIN_VALUE;
+                }
+                </script>
+                
+                </h1>
+                
+                <button onclick="MinValue()">MINValue_Button</button>
+                
+                
+
+</body>
+</html>

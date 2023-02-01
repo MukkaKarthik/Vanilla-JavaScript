@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  
+    <title>Cookies</title>
+
+  <link rel="stylesheet" href="JavaScript%20Tutorial%2075%20Videos.css">
+  <script src="JavaScript%20Tutorial%2075%20Videos.js"></script>
+
+</head>
+<body onload="addChildElement()">
+
+<h1>form for adding cookies </h1>
+
+<div >
+
+    <table >
+
+        <tr>
+            <td>UserName</td>
+            <td>
+                <input type="text"  id="Cookie_class_1" title="Input1stTitle">
+            </td>
+        </tr>
+
+        <tr>
+            <td>Email</td>
+            <td>
+                <input type="text" id="Cookie_class_2" title="Input2ndTitle">
+            </td>
+        </tr>
+
+        <tr>
+            <td>Gender</td>
+            <td>
+                <input type="text" id="Cookie_class_3"  title="Input3rdTitle">
+            </td>
+        </tr>
+    </table>
+
+</div>
+
+
+<div class="div_class_1">
+
+<table>
+        <tr>
+
+            <td>
+                <button  onclick="SetCookie()">Set Cookie</button>
+            </td>
+
+            <td>
+                <button onclick="GetCookie()" >Get Cookies</button>
+            </td>
+
+            <td>
+            <button onclick="ClearCookie()">Clear</button>
+            </td>
+
+
+        </tr>
+
+</table>
+</div>
+
+
+<script>
+
+
+    function SetCookie()
+    {
+
+       var  CookieValue = "UserName = " + document.getElementById("Cookie_class_1").value  + 
+            "\nEmail = " + document.getElementById("Cookie_class_2").value +
+            "\nGender = " + document.getElementById("Cookie_class_3").value;
+
+        document.cookie = CookieValue;
+
+    }
+
+    function GetCookie()
+    {
+        alert(document.cookie);
+
+    }
+
+    function ClearCookie()
+    {
+        document.getElementById("Cookie_class_1").value="";
+
+        document.getElementById("Cookie_class_2").value="";
+        document.getElementById("Cookie_class_3").value="";
+    }
+
+</script>
+
+<h1> Checking if JavaScript enabled or not </h1>
+
+<table>
+
+    <tr>
+        <td>UserName</td>
+        <td>
+            <input type="text" id="input_div_1" onfocus="Click_onfocus('input_div_1')"
+             onblur="Click_onfocus('input_div_1')" onkeyup="Click_onfocus('input_div_1')" title="Input4thTitle">
+        </td>
+    </tr>
+
+    <tr>
+        <td>Gender</td>
+        <td>
+            <input type="text" id="input_div_2" onfocus="Click_onfocus('input_div_2')" 
+            onblur="Click_onfocus('input_div_2')" title="Input5thTitle">
+        </td>
+    </tr>
+
+
+</table>
+
+
+<script>
+
+function  Click_onfocus(controlID)
+{
+    var control = document.getElementById(controlID);
+
+    if(control.value == "")
+    {
+        control.style.backgroundColor = "red";
+    }
+
+    else
+    {
+        control.style.backgroundColor = "Green";
+    }
+}
+
+
+</script>
+
+
+<h1>Calculating addition of few numbers </h1>
+
+<h2>
+<script>
+
+    var addResult = addSomething(25,20);
+    document.write(addResult);
+
+
+</script>
+</h2>
+
+
+<h1> Window Object </h1>
+
+<h2> Accessing window properties</h2>
+<input type="button" value="Open method" onclick="OpenImage()">
+<input type="button" value="Close method" onclick="CloseWindow()">
+<input type="button" value="Print method" onclick="PrintWindow()">
+<div >
+<img src="image1.jpg" class="ImageClass" onclick="OpenImage()" id="img_id" title="Input5thTitle">
+</div>
+
+<script>
+
+    function OpenImage()
+    {
+        window.open("image1.jpg", "Opening 1st Image", "height =450px width =750px");
+    }
+
+function CloseWindow()
+{
+    window.close();
+}
+
+    function  PrintWindow()
+    {
+        window.print();
+    }
+
+</script>
+
+
+<h1>Accessing Location properties </h1>
+
+
+<button onclick="locationDetails()">GetLocation Details</button>
+
+<dl>
+
+    <dt>Server Name /IP Address </dt>
+<dd id="Server"></dd>
+
+
+<dt>Protocol</dt>
+<dd id="protocol"></dd>
+
+
+<dt>URL</dt>
+<dd id="link"></dd>
+
+</dl>
+
+<script>
+
+    function locationDetails()
+    {
+        document.getElementById("Server").innerHTML = location.host;
+
+        var protocolMessage ;
+
+            if (location.protocol == "http:")
+        {
+            protocolMessage = "Live server is running on the browser";
+        }
+        else
+        {
+            protocolMessage = "Not using live server ";
+        }
+
+         document.getElementById("protocol").innerHTML  = location.protocol + "<br>" + protocolMessage;
+
+        document.getElementById("link").innerHTML = location.href;
+    }
+
+</script>
+
+
+<h1>Navigation to a different page</h1>
+<button onclick="NavigateDifferentPage()">Navigate to different page</button>
+
+<script>
+    function NavigateDifferentPage()
+    {
+        location.href = "http://127.0.0.1:4563/CSS_Starter_Files/JavaScript%20Tutorial/JavaScript2.html";
+    }
+
+</script>
+
+
+<h1>Checking Cookie Status of the browser </h1>
+<input type="button" value="Check Cookies" onclick="CheckCookie_function()">
+<textarea id="text_area" title="Input6thTitle"></textarea>
+
+<h2>
+<script>
+
+    function CheckCookie_function()
+    {
+        var message;
+
+        if(navigator.cookieEnabled)
+        {
+            message = "Cookies are enabled in the browser" + "\n Browser is using " + navigator.platform + "platform ";
+        }
+        else
+        {
+            message = "Cookies are not enabled in the browser ";
+        }
+
+        document.getElementById("text_area").innerHTML = message;
+       // alert(message);
+
+    }
+</script>
+</h2>
+
+
+<h1>Checking PlugIns of the browser </h1>
+
+<input type="button" value="PlugIn_function" onclick="PlugIn_browser()">
+
+<h2>
+<script>
+
+    function PlugIn_browser()
+    {
+
+        for (var i=0;i<navigator.plugins.length;i++)
+        {
+            document.write(navigator.plugins[i].name + "<br>");
+        }
+
+
+        if(navigator.plugins["Microsoft Edge PDF Plugin"] == undefined)
+        {
+            document.write("Browser does not have Microsoft Edge PDF Plugin ");
+           prompt("Is installing required ? ");
+            location.href = "http://127.0.0.1:4563/CSS_Starter_Files/JavaScript%20Tutorial/JavaScript2.html";
+        }
+        else
+        {
+            document.write("Browser has Microsoft Edge PDF Plugin <br> ");
+        }
+
+        if(navigator.plugins["Microsoft Edge PDF Viewer"] == undefined)
+        {
+            document.write("Browser does not have Microsoft Edge PDF Viewer ");
+            alert("Is installing required ? ");
+        }
+        else
+        {
+            document.write("Browser has Microsoft Edge PDF Viewer \n ");
+        }
+    }
+
+</script>
+</h2>
+
+<h1>Browsing History</h1>
+<h2>
+<script>
+
+    document.write("No of pages present in browsing history : " + history.length);
+
+</script>
+</h2>
+
+
+
+
+
+<h1> Adding child element </h1>
+
+
+
+<section >
+
+
+
+</section>
+
+<figure>
+
+    <select id="Select_ID" title="Input7thTitle"></select>
+
+
+</figure>
+
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,821 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  
+    <title>Event Handling</title>
+
+  <link rel="stylesheet" href="JavaScript%20Tutorial%2075%20Videos.css">
+  <script src="JavaScript%20Tutorial%2075%20Videos.js"></script>
+
+
+</head>
+<body>
+
+<div class="div_class" id="1">Division 1
+  <div class="div_class" id="2">Division 2
+    <div class="div_class" id="3">Division 3</div>
+  </div>
+</div>
+
+<script>
+
+  var attribute = document.getElementsByTagName("div");
+
+  for(var i=0 ; i<attribute.length; i++)
+  {
+    attribute[i].addEventListener("click",Event1,true);
+    attribute[i].addEventListener("click",Event1,false);
+
+
+    function Event1(event)
+    {
+      alert("Division" + this.getAttribute("id") +  "Selected");
+    }
+  }
+</script>
+
+
+<h1 oncontextmenu="return false"> Disabling context menu by not displaying copy option </h1>
+
+
+<input type="button" value="Click me here" onmouseup="whichMouseButtonClicked(event)">
+
+<script>
+
+    function whichMouseButtonClicked(event)
+    {
+        var MouseButton;
+
+        if (event.which)
+        {
+            switch (event.which)
+            {
+
+                case 1:
+                    MouseButton = "Left Button clicked";
+                    break;
+
+                case 2:
+                    MouseButton = "Middle Button clicked";
+                    break;
+
+                case 3:
+                    MouseButton = "Right Button clicked";
+                    break;
+
+                    default :
+                        MouseButton = "Invalid Button clicked";
+                        break;
+            }
+        }
+
+        else (event.button)
+        {
+            switch (event.button)
+            {
+                case 1:
+                    MouseButton = "Left Button clicked";
+                    break;
+
+                case 4:
+                    MouseButton = "Middle Button clicked";
+                    break;
+
+                case 2:
+                    MouseButton = "Right Button clicked";
+                    break;
+
+                default :
+                    MouseButton = "Invalid Button clicked";
+                    break;
+
+            }
+                  }
+        alert(MouseButton);
+
+    }
+
+</script>
+
+<br>
+<br>
+
+<h1>Recording Mouse events in text area </h1>
+<input type="button" value="SingleClick_DoubleClick_LeftClick_RightClick()"
+onclick="logEvent(event)" onmouseup="logEvent(event)" onmousedown="logEvent(event)" onmouseout="logEvent(event)" onmouseover="logEvent(event)
+onmousemove(logEvent(event)); ondblclick(logEvent(event)) ">
+
+
+<input type="button" value="Clear Contents " onclick="clearLogs()">
+
+<textarea rows="10" cols="20" id="Text_Area" title="firstTextAreaElement"></textarea>
+
+
+<script>
+
+    var event = event || window.event;
+
+    function logEvent(event)
+    {
+        document.getElementById("Text_Area").value+= event.type + "\r\n";
+    }
+
+    function clearLogs()
+    {
+        document.getElementById("Text_Area").value = "";
+    }
+
+</script>
+
+<br>
+
+<br>
+
+<br>
+
+
+<input type="button" value="Open Link" onclick="window.open('https://www.google.com','My Window','height=400 ,width=500 , top=600,bottom=300')">
+
+
+<br>
+<br>
+<br>
+
+
+<h1>Opening browser links in a different window </h1>
+
+<input type="button" value="Open Link" onclick="OpenLink()">
+<input type="button" value="Close Link" onclick="closeLink()">
+
+<script>
+
+    var BrowserLink;
+
+    function OpenLink()
+    {
+        BrowserLink = window.open('https://www.google.com','_facebook_login','height=400 ,width=500 ,top=600,left=300');
+    }
+
+
+    function closeLink()
+    {
+        BrowserLink.close();
+    }
+
+</script>
+
+<br>
+
+<br>
+
+<br>
+
+
+<h1>Regular Expressions in Java Script </h1>
+
+<input type="text" id="InputText" placeholder="Input Regular Expression" id="Input_TextArea" >
+<br>
+<br>
+
+    <input type="button" value="ClickHere_to_Get_Numbers" onclick="RegularExpression()">
+<textarea rows="5" cols="25" placeholder="Numbers Obtained" id="Place_Value"></textarea>
+
+
+<script>
+
+
+    function RegularExpression()
+    {
+        var RegularExpression_Obtained = document.getElementById("Input_TextArea").value;
+
+        var MatchExpression = RegularExpression_Obtained.match(/\d+/g);
+
+
+        if (MatchExpression != null)
+        {
+            for (var i=0;i<MatchExpression.length;i++)
+            {
+                document.getElementById("Place_Value").value+= MatchExpression[i] + "\r\n";
+            }
+        }
+
+    }
+
+</script>
+
+<h1> Custom built objects in Java using Constructors</h1>
+
+<script>
+
+    function EmployeeDetails(passed_firstName , passed_LastName , passed_Age , passed_emailAddress)
+    {
+        this.FirstName = passed_firstName;
+        this.LastName = passed_LastName;
+        this.Age = passed_Age;
+        this.Email = passed_emailAddress;
+
+        this.getAllDetails = function ()
+        {
+            return this.FirstName + " " + this.LastName + " " +  this.Age + " " + this.Email;
+        }
+
+    }
+    var Employee_Variable = new  EmployeeDetails("Google","Facebook",100,"alphabet@google.com");
+
+    document.write("FirstName = " + Employee_Variable.FirstName + "<br>");
+    document.write("LastName = " + Employee_Variable.LastName + "<br>");
+    document.write("Age of the company = " + Employee_Variable.Age + "<br>");
+    document.write("EmailAddress of the company  = " + Employee_Variable.Email + "<br>");
+
+    document.write('Calling function name "getAllDetails" present inside constructor = ' + Employee_Variable.getAllDetails() + "<br>");
+
+    document.write("<strong>Exposing function written inside = </strong>" + Employee_Variable.getAllDetails);
+
+</script>
+
+<h1>Creating Objects using literal notations</h1>
+<script>
+    var employee1 =
+        {
+            firstName : "Google",
+            LastName : "facebook",
+
+            getFullName : function ()
+            {
+                return this.firstName + " " + this.LastName;
+            }
+        }
+    document.write("Literal function values are : ");
+        document.write("FirstName = " + employee1.firstName + "<br>");
+        document.write("LastName = " + employee1.LastName + "<br>");
+
+        document.write("getFullName function details : " + employee1.getFullName() + "<br>");
+        document.write("Getting function written inside = " + employee1.getFullName);
+</script>
+
+
+<h1>Changing object properties using Literal Notations in the past </h1>
+
+<script>
+
+
+    var EmployeeName1 =
+    {
+        name : "Facebook" , 
+        age : 25,
+    }
+
+    var CompanyName = EmployeeName1;
+
+    document.write("Before changes <br>");
+    document.write("EmployeeName(firstName) : " + EmployeeName1.name + "<br>");
+    document.write("EmployeeName(Age) : " + EmployeeName1.age + "<br>");
+
+    document.write("CompanyName :  " + CompanyName.name);
+    document.write("<br><br>");
+
+
+</script>
+
+
+<h1>Object Oriented programming JavaScript language in Webstorm  </h1>
+
+<script>
+
+    function FullName(firstName,LastName)
+    {
+        //public fields
+
+        this.FirstName_publicVariable = firstName;
+        this.LastName_publicVariable = LastName;
+
+
+
+        //private fields
+
+        var fullName_privateVariable ;
+
+
+
+        //private method
+
+        var FullName_privateMethod = function ()
+        {
+            return firstName + " " + LastName;
+        }
+
+
+        //privileged method
+
+        this.getFullName_privilegedMethod = function ()
+        {
+           return  FullName_privateMethod();
+        }
+
+
+
+        //public method
+
+        FullName.prototype.public_getFullNameMethod = function ()
+        {
+                return  this.getFullName_privilegedMethod();
+        }
+
+    }
+
+    var Employee_details_variable = new FullName("Mummy","Daddy");
+
+    document.write("FirstName in public fields : " + Employee_details_variable.FirstName_publicVariable + "<br>");
+    document.write("Last Name in public fields : " + Employee_details_variable.LastName_publicVariable  + "<br>" );
+
+    document.write( "Accessing Public method : " + Employee_details_variable.public_getFullNameMethod() + "<br>");
+
+    document.write("Accessing privileged method : " + Employee_details_variable.getFullName_privilegedMethod() + "<br>" );
+
+
+</script>
+
+<h1> Setting setter and getter methods </h1>
+<script>
+   function Details(firstName,LastName, Age)
+   {
+       var FirstName_DetailsVariable = firstName;
+       var LastName_DetailsVariable = LastName;
+       var Age_DetailsVariable = Age;
+
+       this.FirstName_DetailsVariable_UsingThisProperty = firstName;
+
+       Object.defineProperty(this,"firstName",{
+
+           get() {
+               return  " obtaining firstName from getter method variable (using variable): " + FirstName_DetailsVariable
+                  + "<br> " + " \ printing firstName again(using property) : " + this.FirstName_DetailsVariable_UsingThisProperty;
+           },
+
+           set(value) {
+
+               FirstName_DetailsVariable = value;
+
+           }
+           }
+       )
+
+   }
+
+   var Student = new Details("Student_firstName","Student_lastName",25);
+   document.write(Student.firstName + "<br>");
+   Student.firstName = "FirstName changed ";
+   document.write(Student.firstName);
+
+</script>
+
+<h1> Static and Instance Variables </h1>
+<h2>
+<script>
+
+    function Circle(radius)
+    {
+        //Instance Field
+        this.Radius = radius;
+
+        //Static field
+
+        Circle.PI = 3.14;
+
+        this.Area = function ()
+        {
+            return radius * Circle.PI * Circle.PI;
+        }
+    }
+
+    var Created_Circle = new Circle(3);
+    document.write("Area = " + Created_Circle.Area() + "<br>");
+
+</script>
+</h2>
+
+<h1>Instance Variables Static variables and Static methods </h1>
+<h2>
+<script>
+    function Shape(Shape_name)
+    {
+        this.Shape_Name_instanceVariable = Shape_name;
+
+        Shape.count = ++Shape.count || 1;
+
+        //static method
+        Shape.Return_ShapeCount = function ()
+        {
+            return Shape.count;
+        }
+
+        // Instance Method
+        this.Instance_ShapeName = function ()
+        {
+            return this.Shape_Name + " instance created ";
+        }
+
+    }
+
+var Circle = new Shape("Circle");
+    document.write("Invoking Instance Method : " + Circle.Instance_ShapeName() + "<br>");
+    document.write("Invoking Static count : " + Shape.Return_ShapeCount()  + "<br>");
+
+    document.write("<br>");
+
+    var Square = new Shape("Square");
+    document.write("Invoking Instance Method : " + Square.Instance_ShapeName() + "<br>");
+    document.write("Invoking Static count : " + Shape.Return_ShapeCount()+ "<br>");
+
+    document.write("<br>");
+
+    var Rectangle = new Shape("Rectangle");
+    document.write("Invoking Instance Method : " + Rectangle.Instance_ShapeName()+ "<br>");
+    document.write("Invoking Static count : " + Shape.Return_ShapeCount()+ "<br>");
+
+    document.write("<br>");
+
+    var Polygon = new Shape("Polygon");
+    document.write("Invoking Instance Method : " + Polygon.Instance_ShapeName()+ "<br>");
+    document.write("Invoking Static count : " + Shape.Return_ShapeCount()+ "<br>");
+
+    document.write("<br>");
+
+    //Creating new instance but calling static functions from previous created instance variables
+    var Hexagon = new Shape("Hexagon");
+    document.write("Invoking Instance Method : " + Square.Instance_ShapeName()+ "<br>");
+    document.write("Invoking Static count : " + Shape.Return_ShapeCount()+ "<br>");
+
+    document.write("<br>");
+
+    var Pentagon = new Shape("Pentagon");
+    document.write("Invoking Instance Method : " + Polygon.Instance_ShapeName()+ "<br>");
+    document.write("Invoking Static count : " + Shape.Return_ShapeCount()+ "<br>");
+
+    document.write("<br>");
+
+</script>
+</h2>
+
+
+<h1>Adding functions using prototype property</h1>
+<h2>
+<script>
+
+    function Student(firstName,lastName)
+    {
+        this.FirstName_instance = firstName;
+        this.LastName_instance = lastName;
+
+        Student.prototype.getFullName = function ()
+        {
+            return "FirstName =" + this.FirstName_instance + "    " + "LastName = "+ this.LastName_instance;
+        }
+
+    }
+
+    var Student1  = new Student("firstName_1","lastName_1");
+    var Student2 = new Student("firstName_2","lastName_2");
+    var Student3 = new Student("firstName_3","lastName_3");
+    var Student4 = new Student("firstName_4","lastName_4");
+    var Student5 = new Student("firstName_5","lastName_5");
+
+    document.write("Invoking Student function " + "for 1st time : " + " Student full name given :- " + Student1.getFullName() + "<br>");
+    document.write("Invoking Student function " + "for 2nd time : " + " Student full name given :- " + Student2.getFullName() + "<br>");
+
+</script>
+</h2>
+
+
+
+<h1> Overriding functions </h1>
+<input type="button" value="calling main function using client code" onclick="ClientCode()">
+<script>
+
+
+    //Main Constructor Function
+    function CompanyName(name) {
+        this.Company_PublicVariable = name;
+    }
+        //static method
+        CompanyName.prototype.gettingFullName = function ()
+        {
+            return this.Company_PublicVariable;
+        }
+
+    var Company1 = new CompanyName("Mind-tree");
+    document.write("Invoking Company1 name : " + Company1.gettingFullName());
+
+</script>
+
+<h1>Overriding alert function</h1>
+
+<h1> Inheritance in JavaScript </h1>
+
+<script>
+
+
+    Parent_UniversityName = function (StudentName,ExamFees)
+    {
+        this.College_StudentName = StudentName;
+        this.College_ExamFees = ExamFees;
+
+        this.getCollege_StudentDetails = function ()
+        {
+            return "Student Name : " + this.College_StudentName + "<br>" + "Fees Amount : " + this.College_ExamFees;
+        }
+
+        this.UniversityName = "VTU";
+
+    }
+
+    var p1 = new Parent_UniversityName("Google",25000);
+    document.write("University details  are : <br>" + " Student Name : " + p1.College_StudentName + "<br> Exam fees : " + p1.College_ExamFees);
+
+    document.write("<br>");
+    document.write("Collecting University details using instance method : " + p1.getCollege_StudentDetails() );
+
+    Child_UniversityName = function (BranchName)
+    {
+        this.College_BranchName = BranchName;
+
+        this.College_Branch_Section = function ()
+        {
+            return "Branch Name : " + this.College_BranchName;
+        }
+    }
+
+
+
+
+    Child_UniversityName.prototype.UniversityChild = Parent_UniversityName.UniversityName;
+
+    var c1 = new Child_UniversityName("Electronics");
+    document.write("calling parent function using child object : " + c1.UniversityChild);
+
+
+</script>
+
+
+<h1> Abstract Classes </h1>
+
+<script>
+
+    var Shape = function(Shape)
+    {
+        this.ShapeName = Shape;
+         throw new Error("Instance of abstract class cannot be created ");
+    }
+
+    Shape.prototype.getShapeName = function (ShapeName)
+    {
+        return "Created Shape " + this.ShapeName;
+    }
+
+
+    var Polygon = function (sides)
+    {
+        this.Polygon_Sides = sides;
+    }
+
+    Polygon.prototype.getSides = function ()
+    {
+        return "Sides present : " + this.Polygon_Sides;
+    }
+
+    var p1 = new Polygon("6_Sides = Hexagon");
+    document.write("Invoking constructor function variable " + p1.Polygon_Sides + "<br>");
+    document.write("Invoking prototype function method " + p1.getSides() + "<br>");
+
+
+
+    Polygon.prototype = Object.create(Shape.prototype);
+
+
+/*     var s1 = new Shape("Circle");
+    document.write("Invoking abstract class variable: "+ s1.ShapeName + "<br>");
+    document.write("Invoking abstract class method : " + s1.getShapeName() + "<br>");
+ */
+
+
+    var poly = new Polygon("Square");
+    document.write("Invoking abstract class method : " + poly.getShapeName() );
+
+</script>
+
+<h1>Polymorphism </h1>
+
+<script>
+
+    var Shape = function (){ }
+
+    Shape.prototype.getName = function ()
+    {
+        return "I am a shape ";
+    }
+
+    var Circle = function (){ }
+    Circle.prototype = Object.create(Shape.prototype);
+    Circle.prototype.getName = function ()
+    {
+        return "I am a Circle ";
+    }
+
+    var Square = function (){ }
+    Square.prototype = Object.create(Shape.prototype);
+    Square.prototype.getName = function ()
+    {
+        return "I am a Square ";
+    }
+
+    var Triangle = function (){ }
+    Triangle.prototype = Object.create(Shape.prototype);
+
+
+    var shapes = [new Shape() , new Circle, new Square(), new Triangle()];
+
+    shapes.forEach(function(Shape)
+    {
+       document.write(Shape.getName() + "<br>");
+    });
+
+</script>
+
+<h1>Obtaining properties</h1>
+
+<script>
+
+    var aspirant = function (firstName,LastName,Email,Address)
+    {
+        this.aspirant_firstName = firstName;
+        this.aspirant_LastName = LastName;
+        this.aspirant_Email = Email;
+        this.aspirant_Address = Address;
+    }
+
+    aspirant.prototype.fullName = function ()
+    {
+        return this.aspirant_firstName + " " + this.aspirant_LastName;
+    }
+
+    aspirant.prototype.getEmail = function ()
+    {
+        return this.aspirant_Email;
+    }
+
+    aspirant.prototype.getAddress = function ()
+    {
+        return this.aspirant_Address;
+    }
+
+    var aspi = new aspirant("Mark","Google","facebook.com","Hyderabad");
+
+    //Obtaining variables and methods in function
+    for(var property in aspi)
+    {
+        document.write(property +" : " + aspi[property] +  "<br>");
+    }
+
+document.write("<br>");
+    document.write("<br>");
+    document.write("<br>");
+
+
+    //obtaining only variables inside function
+
+    for(var property in aspi)
+    {
+        if(typeof aspi[property] != "function")
+
+        document.write(property +" : " + aspi[property] +  "<br>");
+    }
+    document.write("<br>");
+    document.write("<br>");
+    document.write("<br>");
+
+    //Obtaining only functions
+
+    for(var property in aspi)
+    {
+        if(typeof aspi[property] == "function")
+
+            document.write(property +" : " + aspi[property] +  "<br>");
+    }
+    document.write("<br>");
+    document.write("<br>");
+    document.write("<br>");
+
+    var Permanent_Aspirant = function (annualSalary)
+    {
+        this.Salary = annualSalary;
+    }
+    Permanent_Aspirant.prototype = aspi;
+
+    var p1 = new Permanent_Aspirant(5000);
+
+    for(var property in p1)
+    {
+        if(typeof p1[property] != "function")
+
+            document.write(property +" : " + p1[property] +  "<br>");
+    }
+
+    document.write("<br>");
+    document.write("<br>");
+    document.write("<br>");
+
+
+    for(var property in p1)
+    {
+        if(p1.hasOwnProperty(property))
+        {
+        document.write(property + " : " + p1[property] + "<br>");
+        }
+    }
+
+    //public properties and methods that are inherited
+
+    document.write("<br>");
+    document.write("<br>");
+    document.write("<br>");
+
+
+    for(var property in p1)
+    {
+        if(!p1.hasOwnProperty(property))
+        {
+            document.write(property + " : " + p1[property] + "<br>");
+        }
+    }
+
+</script>
+
+
+<h1>Obtaining read access by using get methods </h1>
+
+<script>
+
+    var school = function (SchoolName) {
+        this.School_Name = SchoolName;
+
+        Object.defineProperty(this, "SchoolName", {
+
+                get: function () {
+                    return this.School_Name;
+                }
+
+            }
+        );
+    }
+
+    var school1 = new school("Narayana");
+    school1.SchoolName = "Chaitanya";
+    document.write(school1.SchoolName);
+
+
+
+
+</script>
+
+
+<br>
+
+<br>
+
+<br>
+
+<h1>Reading Cookies from the browser </h1>
+<input type="button" value="SetCookie" onclick="SetCookie()">
+<input type="button" value="GetCookie" onclick="Get_Read_Cookie()">
+
+<script>
+
+    function SetCookie()
+    {
+        document.cookie = "backgroundColor = Yellow";
+    }
+
+    function Get_Read_Cookie() {
+
+        var ReadCookie = document.cookie;
+
+        if (ReadCookie != null) {
+            var CookieArray = ReadCookie.split("=");
+            alert("Attribute Name = " + CookieArray[0] + "\n"+  "Attribute Value = " + CookieArray[1]);
+        } else {
+            alert("Cookie not found / Cookie not set / Cookie expired ");
+        }
+
+    }
+
+</script>
+
+
+
+
+</body>
+</html>
+

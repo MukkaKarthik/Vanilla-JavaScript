@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>FormValidation Youtube Channel</title>
+
+
+  <link rel="stylesheet" href="JavaScript%20Tutorial%2075%20Videos.css">
+  <script src="JavaScript%20Tutorial%2075%20Videos.js"></script>
+
+
+</head>
+<body>
+
+<h1> Form Validation without filling </h1>
+
+<table>
+
+  <tr>
+    <label>Email Address</label>
+    <input type="text" id="email_address_id" title="Input1stElement" >
+    <br>
+    <br>
+
+  </tr>
+
+  <tr>
+    <label>Email Part</label>
+    <input type="text" id="email_part_id" title="Input2ndElement">
+    <br>
+    <br>
+  </tr>
+
+  <tr>
+    <label>Domain Address</label>
+    <input type="text" id="domain_address_id" title="Input3rdElement">
+    <br>
+    <br>
+  </tr>
+
+</table>
+
+<button onclick="EmailFormValidation_WithoutFilling()">Submit</button>
+
+<br>
+<br>
+<br>
+<br>
+
+<table>
+
+  <tr>
+    <label>Website URL</label>
+    <input type="text" id="website_URL" title="Input4thElement" >
+    <br>
+    <br>
+  </tr>
+
+  <tr>
+    <label>Domain last name </label>
+    <input type="text" id="domain_last_name" title="Input5thElement">
+    <br>
+    <br>
+  </tr>
+
+</table>
+
+<button onclick="DomainFormValidation_UsingURL()">Submit</button>
+
+
+<h2>Ternary Operator</h2>
+
+<button onclick="Ternary_Operator()">Submit</button>
+
+<br>
+<br>
+
+<h2>Ternary Operator for Calendar</h2>
+
+<button onclick="Ternary_Operator_forCalendar()">Submit</button>
+
+
+<br>
+<br>
+
+<h2>While Loop for Printing numbers </h2>
+
+<button onclick="whileLoop()">Submit</button>
+
+<br>
+<br>
+
+<h2>For Loop for Printing numbers </h2>
+
+<button onclick="forLoop()">Submit</button>
+
+
+<br>
+<br>
+
+<h2>Array Loop for Printing numbers </h2>
+
+<button onclick="ArrayLoop()">Submit</button>
+
+<br>
+<br>
+
+<h1> Addition of 2 integers using Table function</h1>
+
+<table>
+
+  <tr>
+    <label>First Number</label>
+    <input type="number" id="firstNumber_ID" title="Input6thElement">
+  </tr>
+
+  <br>
+  <br>
+
+
+  <tr>
+    <label>Second Number</label>
+    <input type="number" id="secondNumber_ID" title="Input7thElement">
+  </tr>
+
+  <br>
+  <br>
+
+  <tr>
+    <h3 id="afterAddition"> </h3>
+  </tr>
+
+
+ 
+  <tr>
+    <button onclick="performSimpleAddition()">AddResult_Button</button>
+  </tr>
+
+ 
+
+  <br>
+  <br>
+
+</table>
+
+
+<h1> Addition of 2 integers using calling function</h1>
+
+<script>
+
+  var result = add2Integers(5,75);
+  document.write(result);
+
+</script>
+
+<h1> Calculating factorial of a number </h1>
+
+
+
+<br>
+<br>
+<h1> Calculating factorial of a number using Self invocation function  </h1>
+<h2>Factorial of 5 :
+  <script>
+    document.write(factorial_result);
+  </script>
+</h2>
+
+
+
+<br>
+<br>
+
+<h1> Performing addition using nested function </h1>
+
+<h2> Addition of 2 integers 17 and 3 :
+  <script>
+
+   var result_addition =  addNumbers(17,3);
+    document.write(result_addition);
+  </script>
+
+</h2>
+
+
+
+<br>
+<br>
+
+<h2>Click the below button to increment value of click count </h2>
+
+
+<script>
+  var Click_Count = 0;
+
+
+</script>
+<input type="button" value="ClickCount_Increase" onclick="alert(++Click_Count)">
+
+
+<br>
+<br>
+
+<h2>Using calling function Click the below button to increment value of click count </h2>
+
+<input type="button" value="Click_function_Button" onclick="alert(Click_function());">
+
+
+<br>
+<br>
+
+<h2>Using anonymous calling function increase click count </h2>
+<input type="button" value="Click_function_Button" onclick="alert(Click_Variable());">
+
+
+<h1>Printing Arguments function </h1>
+<script>
+  printArguments();
+  printArguments("A","B");
+  printArguments(2,3,4,5);
+  printArguments("AB","CD","EF","GH");
+</script>
+
+<h1> Addition by calling function using arguments function </h1>
+
+<script>
+
+  addition_arguments();
+  addition_arguments(2,3);
+  addition_arguments(50,60,70,40,90);
+</script>
+
+
+<h1>Sorting Arguments Object</h1>
+<script>
+
+  sorting_Arguments(20,10,5);
+
+</script>
+
+<h1> Performing Non - Recursive function </h1>
+<script>
+
+  document.write(NonRecursive_function(6));
+
+</script>
+
+
+<h1> Performing Recursive function </h1>
+<script>
+
+  document.write(Recursive_function(6));
+
+</script>
+
+<br>
+<br>
+
+
+
+<script>
+
+  try {
+    document.write(sayHello() + "<br>");
+    document.write("This line is from try block " + "<br>");
+  }
+
+  catch (e)
+  {
+    document.write("Message = "+ e.message + "<br>");
+    document.write("Description = "+e.description+ "<br>");
+    document.write("Stack Trace = "+ e.stack+ "<br>");
+  }
+
+  finally {
+    document.write("This line is from finally block" + "<br>");
+  }
+
+
+
+
+</script>
+
+
+
+<h1> Executing window.onerror event </h1>
+<script>
+
+  window.onerror = function (Message , URL , Line)
+  {
+    document.write("Message : "+ Message + "\nURL :" + URL + "\nLine :" + Line );
+  }
+  try
+  {
+    NonExisting_Function();
+  }
+
+  catch (e) {
+    document.write(e.message);
+    document.write("<br>");
+    document.write(e.description);
+    document.write("<br>");
+    document.write(e.stack);
+    document.write("<br><br><br><br>");
+    document.write("Executing window.onerror() method");
+    document.write("<br>");
+    window.onerror();
+  }
+
+</script>
+
+
+
+
+
+
+
+</body>
+
+
+</html>
